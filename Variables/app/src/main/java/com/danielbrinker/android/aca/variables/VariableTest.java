@@ -11,20 +11,20 @@ public class VariableTest extends AppCompatActivity {
         setContentView(R.layout.activity_variable_test);
 
         byte numerito = 1;
-        System.out.println("This is a byte.");
+        System.out.println("Numerito: " + numerito);
         short numero = 20;
-        System.out.println("This is a short.");
+        System.out.println("Numero: " + numero);
         int entero = 30;
-        System.out.println("This is an integer.");
+        System.out.println("Entero: " + entero);
         long largo = 400000;
-        System.out.println("Right here we have a long type.");
+        System.out.println("Largo: " + largo);
         float flotador = 4.5f;
-        System.out.println("This is a float.");
+        System.out.println("Flotador: " + flotador);
         double doble = 4000000000.5555d;
-        System.out.println("This on is a double.");
+        System.out.println("Doble: " + doble);
         boolean booleano = true;
-        System.out.println("In Apple speak, that thar be a bool type.");
+        System.out.println("Booleano: " + booleano);
         char caracter = '~';
-        System.out.println("This one's quite the character.");
+        System.out.println("Caracter: " + caracter);
     }
 }
