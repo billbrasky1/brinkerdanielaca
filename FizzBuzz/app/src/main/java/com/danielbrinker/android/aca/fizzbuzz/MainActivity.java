@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
                 int num = Integer.parseInt(mEditText.getText().toString());
 
-                if ((num % 3) == 0 && (num % 5) == 0){
+                if ((num % 3) == 0 && (num % 5) == 0) {
                     mResultText.setText("FizzBuzz");
                 } else if (num % 5 == 0) {
                     mResultText.setText("Buzz");
@@ -46,6 +46,6 @@ public class MainActivity extends AppCompatActivity {
             }
 
 
-
-
-        });}}
+        });
+    }
+}
