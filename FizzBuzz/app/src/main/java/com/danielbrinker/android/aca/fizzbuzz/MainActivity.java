@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        mConvertButton = (Button) findViewById(R.id.convertButton); //You have casted it to a button.
-        mEditText = (EditText) findViewById(R.id.editText); // cast it to EditText and drill to resources and look for the ID for editText
+        mConvertButton = (Button) findViewById(R.id.convertButton);
+        mEditText = (EditText) findViewById(R.id.editText);
         mResultText = (TextView) findViewById(R.id.resultText);
 
 
