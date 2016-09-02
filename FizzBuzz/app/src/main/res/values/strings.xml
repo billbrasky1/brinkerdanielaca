@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">FizzBuzz</string>
+    <string name ="convert">CONVERT</string>
+</resources>
