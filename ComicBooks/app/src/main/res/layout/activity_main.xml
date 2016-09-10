@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.danielbrinker.android.aca.comicbooks.MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Title:"
+        android:id="@+id/title"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/issueNum"
+        android:layout_alignStart="@+id/issueNum" />
+
+    <EditText
+        android:id="@+id/titleIn"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_marginTop="40dp" />
+
+
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Issue Number:"
+        android:id="@+id/issueNum"
+        android:layout_marginTop="36dp"
+        android:layout_below="@+id/titleIn"
+        android:layout_alignLeft="@+id/basePrice"
+        android:layout_alignStart="@+id/basePrice" />
+
+    <EditText
+        android:id="@+id/issueIn"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@+id/issueNum"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Condition:"
+        android:id="@+id/condition"
+        android:layout_above="@+id/conditionIn"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/conditionIn"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Base Price in US Dollar$:"
+        android:id="@+id/basePrice"
+        android:layout_above="@+id/basePriceIn"
+        android:layout_toLeftOf="@+id/convertButton"
+        android:layout_toStartOf="@+id/convertButton" />
+
+    <EditText
+        android:id="@+id/basePriceIn"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_above="@+id/resultText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+
+        android:id="@+id/resultText"
+        android:textAlignment="center"
+        android:layout_alignBottom="@+id/convertButton"
+        android:layout_centerHorizontal="true" />
+
+
+
+    <Button
+        android:id="@+id/convertButton"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="400dp"
+        android:text="CURRENT PRICE"/>
+
+
+
+
+
+
+</RelativeLayout>
