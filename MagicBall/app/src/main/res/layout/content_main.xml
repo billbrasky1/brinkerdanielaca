@@ -17,31 +17,37 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Press the button or shake phone for Magic 9-Ball's Answer to your question."
+        android:text="Press the button or shake phone for Magic 9-Ball's Answer to your question. Press bottom right button to roll a pair of dice for a number 1 through 12."
         android:textColor="#ffffff"
         android:textSize="@dimen/abc_text_size_large_material"
         android:id="@+id/textView"/>
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/abc_action_bar_stacked_max_height"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text=""
-        android:id="@+id/theAnswer"
-        android:textColor="#f8fc07"
-        android:textSize="@dimen/abc_text_size_display_1_material"
-        android:layout_alignBottom="@+id/imageView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+        android:text="New Text"
+        android:id="@+id/diceAnswer"
+        android:textColor="@color/abc_btn_colored_borderless_text_material"
+        android:textSize="@dimen/abc_text_size_large_material"
+        android:layout_below="@+id/textView"
+        android:layout_alignRight="@+id/textView"
+        android:layout_alignEnd="@+id/theAnswer"
+        android:layout_marginRight="59dp"
+        android:layout_marginEnd="59dp"/>
 
-    <ImageView
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:src="@drawable/ninerball"
-        android:layout_centerVertical="true"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/theAnswer"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginBottom="70dp"
+        android:textColor="@color/abc_btn_colored_borderless_text_material"/>
 
 
 </RelativeLayout>

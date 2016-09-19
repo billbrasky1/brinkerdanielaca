@@ -19,8 +19,10 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
 
 
-    public TextView mTheAnswer; //The random output
+    public TextView mTheAnswer; //The random output for 9-Ball
+    public TextView mDiceAnswer; //The random output for Dice
     private final static float ACC = 20;
+
 
 
     @Override
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         setSupportActionBar(toolbar);
 
         mTheAnswer = (TextView) findViewById(R.id.theAnswer);
+        mDiceAnswer = (TextView) findViewById(R.id.diceAnswer);
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -119,6 +122,26 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             }
         });
 
+
+        FloatingActionButton fabTwo = (FloatingActionButton) findViewById(R.id.fabTwo);
+
+        fabTwo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Random randGenerator = new Random();
+                Random randGeneratorTwo = new Random();
+
+                int ourRandomNumberDice = randGenerator.nextInt(7);
+                int ourRandomNumberDiceTwo = randGeneratorTwo.nextInt(7);
+
+                System.out.println(ourRandomNumberDice);
+                System.out.println(ourRandomNumberDiceTwo);
+
+                mDiceAnswer.setText(Integer.toString(ourRandomNumberDice + ourRandomNumberDiceTwo));
+            }
+        });
+
         SensorManager shakeTheDevice = (SensorManager) getSystemService(SENSOR_SERVICE);
         shakeTheDevice.registerListener(this,
                 shakeTheDevice.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
@@ -126,6 +149,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     }
 
+    
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
 
@@ -227,8 +251,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         System.out.println(ninesAnswer);
         mTheAnswer.setText(ninesAnswer);
     }
-
-
 
 
 
