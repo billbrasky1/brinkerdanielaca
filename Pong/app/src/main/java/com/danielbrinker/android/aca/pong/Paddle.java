@@ -37,11 +37,10 @@ public class Paddle {
     private int mScreenX;
     private int mScreenY;
 
-
     // This is the constructor method
-// When we create an object from this class we will pass
-// in the screen width and mHeight
-    public Paddle(int x, int y) {
+    // When we create an object from this class we will pass
+    // in the screen width and mHeight
+    public Paddle(int x, int y){
 
         mScreenX = x;
         mScreenY = y;
@@ -64,36 +63,35 @@ public class Paddle {
     }
 
     // This is a getter method to make the rectangle that
-// defines our paddle available in GameView class
-    public RectF getRect() {
+    // defines our paddle available in GameView class
+    public RectF getRect(){
         return mRect;
     }
 
-
     // This method will be used to change/set // if the mPaddle is going
-// left, right or nowhere
+    // left, right or nowhere
 
-    public void setMovementState(int state) {
+    public void setMovementState(int state){
         mPaddleMoving = state;
     }
 
     // This update method will be called from update in GameView
-// It determines if the paddle needs to move // and changes the coordinates
-// contained in mRect if necessary
-    public void update(long fps) {
-        if (mPaddleMoving == LEFT) {
+    // It determines if the paddle needs to move // and changes the coordinates
+    // contained in mRect if necessary
+    public void update(long fps){
+        if(mPaddleMoving == LEFT){
             mXCoord = mXCoord - mPaddleSpeed / fps;
         }
-        if (mPaddleMoving == RIGHT) {
+        if(mPaddleMoving == RIGHT){
             mXCoord = mXCoord + mPaddleSpeed / fps;
         }
 
         // Make sure it's not leaving screen
-        if (mRect.left < 0) {
+        if(mRect.left < 0){
             mXCoord = 0;
         }
 
-        if (mRect.right > mScreenX) {
+        if(mRect.right > mScreenX){
             mXCoord = mScreenX -
                     // The width of the paddle
                     (mRect.right - mRect.left);
@@ -104,5 +102,5 @@ public class Paddle {
         mRect.right = mXCoord + mLength;
     }
 
-
 }
+

@@ -6,9 +6,10 @@ import android.os.Bundle;
 import android.view.Display;
 
 public class MainActivity extends Activity {
+
     // gameView will be the view of the game
-// It will also hold the logic of the game
-// and respond to screen touches as well
+    // It will also hold the logic of the game
+    // and respond to screen touches as well
     GameView gameView;
 
     @Override

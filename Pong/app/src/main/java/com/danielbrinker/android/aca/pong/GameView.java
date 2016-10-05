@@ -1,5 +1,4 @@
 package com.danielbrinker.android.aca.pong;
-
 import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
@@ -18,9 +17,6 @@ import android.view.SurfaceView;
 
 import java.io.IOException;
 
-/**
- * Created by danielbrinker on 10/4/16.
- */
 
 public class GameView extends SurfaceView implements Runnable {
 
@@ -41,6 +37,7 @@ public class GameView extends SurfaceView implements Runnable {
 
     // A Canvas and a Paint object
     Canvas mCanvas;
+
     Paint mPaint;
 
     // This variable tracks the game frame rate
@@ -48,6 +45,7 @@ public class GameView extends SurfaceView implements Runnable {
 
     // The size of the screen in pixels
     int mScreenX;
+
     int mScreenY;
 
     // The players mPaddle
@@ -58,10 +56,15 @@ public class GameView extends SurfaceView implements Runnable {
 
     // For sound FX
     SoundPool sp;
+
     int beep1ID = -1;
+
     int beep2ID = -1;
+
     int beep3ID = -1;
+
     int loseLifeID = -1;
+
     int explodeID = -1;
 
     // The mScore
@@ -70,19 +73,17 @@ public class GameView extends SurfaceView implements Runnable {
     // Lives
     int mLives = 3;
 
-
-
     /*
-  When we call new() on gameView
-  This custom constructor runs
-*/
+      When we call new() on gameView
+      This custom constructor runs
+    */
 
     public GameView(Context context, int x, int y) {
 
-  /*
-    The next line of code asks the
-    SurfaceView class to set up our object.
-  */
+    /*
+      The next line of code asks the
+      SurfaceView class to set up our object.
+    */
         super(context);
 
         // Set the screen width and height
@@ -100,10 +101,10 @@ public class GameView extends SurfaceView implements Runnable {
         mBall = new Ball(mScreenX, mScreenY);
 
         /*
-    Instantiate our sound pool
-    dependent upon which version
-    of Android is present
-  */
+        Instantiate our sound pool
+        dependent upon which version
+        of Android is present
+        */
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             AudioAttributes audioAttributes = new AudioAttributes.Builder()
@@ -179,11 +180,11 @@ public class GameView extends SurfaceView implements Runnable {
             // Draw the frame
             draw();
 
-    /*
-      Calculate the FPS this frame
-      We can then use the result to
-      time animations in the update methods.
-    */
+            /*
+            Calculate the FPS this frame
+            We can then use the result to
+            time animations in the update methods.
+            */
             long timeThisFrame = System.currentTimeMillis() - startFrameTime;
             if (timeThisFrame >= 1) {
                 mFPS = 1000 / timeThisFrame;
@@ -194,14 +195,12 @@ public class GameView extends SurfaceView implements Runnable {
     }
 
     // Everything that needs to be updated goes in here
-// Movement, collision detection etc.
+    // Movement, collision detection etc.
     public void update() {
-
         // Move the mPaddle if required
         mPaddle.update(mFPS);
 
         mBall.update(mFPS);
-
 
         // Check for mBall colliding with mPaddle
         if (RectF.intersects(mPaddle.getRect(), mBall.getRect())) {
@@ -214,7 +213,6 @@ public class GameView extends SurfaceView implements Runnable {
 
             sp.play(beep1ID, 1, 1, 0, 0, 1);
         }
-
 
         // Bounce the mBall back when it hits the bottom of screen
         if (mBall.getRect().bottom > mScreenY) {
@@ -254,9 +252,7 @@ public class GameView extends SurfaceView implements Runnable {
 
             sp.play(beep3ID, 1, 1, 0, 0, 1);
         }
-
     }
-
 
     // Draw the newly updated scene
     public void draw() {
@@ -292,11 +288,10 @@ public class GameView extends SurfaceView implements Runnable {
             // Draw everything to the screen
             mOurHolder.unlockCanvasAndPost(mCanvas);
         }
-
     }
 
     // If the Activity is paused/stopped
-// shutdown our thread.
+    // shutdown our thread.
     public void pause() {
         mPlaying = false;
         try {
@@ -308,16 +303,15 @@ public class GameView extends SurfaceView implements Runnable {
     }
 
     // If the Activity starts/restarts
-// start our thread.
+    // start our thread.
     public void resume() {
         mPlaying = true;
         mGameThread = new Thread(this);
         mGameThread.start();
     }
 
-
     // The SurfaceView class implements onTouchListener
-// So we can override this method and detect screen touches.
+    // So we can override this method and detect screen touches.
     @Override
     public boolean onTouchEvent(MotionEvent motionEvent) {
 
@@ -329,9 +323,10 @@ public class GameView extends SurfaceView implements Runnable {
                 mPaused = false;
 
                 // Is the touch on the right or left?
-                if (motionEvent.getX() > mScreenX / 2) {
+                if(motionEvent.getX() > mScreenX / 2){
                     mPaddle.setMovementState(mPaddle.RIGHT);
-                } else {
+                }
+                else{
                     mPaddle.setMovementState(mPaddle.LEFT);
                 }
 
@@ -346,6 +341,4 @@ public class GameView extends SurfaceView implements Runnable {
         return true;
     }
 
-
 }
-
