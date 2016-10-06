@@ -1,5 +1,7 @@
 package com.danielbrinker.android.aca.pong;
+
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
 import android.graphics.Canvas;
@@ -23,6 +25,9 @@ public class GameView extends SurfaceView implements Runnable {
     // This is our thread
     Thread mGameThread = null;
 
+
+
+    Context mContext;
     // This is new. We need a SurfaceHolder
     // When we use Paint and Canvas in a thread
     // We will see it in action in the draw method soon.
@@ -53,6 +58,8 @@ public class GameView extends SurfaceView implements Runnable {
 
     // A mBall
     Ball mBall;
+
+    TryAgain mTryAgain;
 
     // For sound FX
     SoundPool sp;
@@ -85,6 +92,8 @@ public class GameView extends SurfaceView implements Runnable {
       SurfaceView class to set up our object.
     */
         super(context);
+
+        mContext = context;
 
         // Set the screen width and height
         mScreenX = x;
@@ -153,16 +162,23 @@ public class GameView extends SurfaceView implements Runnable {
 
     public void setupAndRestart() {
 
-        // Put the mBall back to the start
-        mBall.reset(mScreenX, mScreenY);
 
-        // if game over reset scores and mLives
+        Intent intent = new Intent(mContext, TryAgain.class);
+
+
         if (mLives == 0) {
-            mScore = 0;
-            mLives = 3;
-        }
 
+
+            mContext.startActivity(intent);
+
+
+        }
     }
+
+
+
+
+
 
     @Override
     public void run() {
@@ -266,24 +282,27 @@ public class GameView extends SurfaceView implements Runnable {
             mCanvas = mOurHolder.lockCanvas();
 
             // Draw the background color
-            mCanvas.drawColor(Color.argb(255, 26, 128, 182));
+            mCanvas.drawColor(Color.argb(255, 0, 0, 0)); //255, 0, 0, 0
 
-            // Choose the brush color for drawing
-            mPaint.setColor(Color.argb(255, 255, 255, 255));
+            // Choose the brush color for drawing paddle
+            mPaint.setColor(Color.argb(255, 0, 255, 115));
 
             // Draw the mPaddle
             mCanvas.drawRect(mPaddle.getRect(), mPaint);
+
+            // Choose the brush color for drawing Ball
+            mPaint.setColor(Color.argb(255, 26, 215, 22)); //255, 26, 215, 22
 
             // Draw the mBall
             mCanvas.drawRect(mBall.getRect(), mPaint);
 
 
-            // Choose the brush color for drawing
-            mPaint.setColor(Color.argb(255, 255, 255, 255));
+            // Choose the brush color for drawing the score
+            mPaint.setColor(Color.argb(255, 0, 255, 115));
 
             // Draw the mScore
-            mPaint.setTextSize(40);
-            mCanvas.drawText("Score: " + mScore + "   Lives: " + mLives, 10, 50, mPaint);
+            mPaint.setTextSize(60);
+            mCanvas.drawText("Score: " + mScore + "   Lives: " + mLives, 60, 100, mPaint);
 
             // Draw everything to the screen
             mOurHolder.unlockCanvasAndPost(mCanvas);
@@ -340,5 +359,6 @@ public class GameView extends SurfaceView implements Runnable {
         }
         return true;
     }
+
 
 }
