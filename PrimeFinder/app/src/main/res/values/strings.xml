@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PrimeFinder</string>
+    <string name="action_settings">Settings</string>
+    <string name ="convert">CONVERT</string>
+</resources>
